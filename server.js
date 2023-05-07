@@ -5,18 +5,20 @@ app.use(express.json());
 /** array con contiene los empleados creeados */
 const Empleados = [];
 
+/** objeto con contiene los datos de cada empleado  */
+const Empleado = {
+    "id": 0,
+    "nombre": '',
+    "apellido": '',
+    "edad": 0,
+    "correo": ""
+}
+
 
 app.post('/crearEmpleado', (req, res) => {
 
 
-    /** objeto con contiene los datos de cada empleado  */
-    const Empleado = {
-        "id": 0,
-        "nombre": '',
-        "apellido": '',
-        "edad": 0,
-        "correo": ""
-    }
+
 
     /** body que recibe de la vista*/
     const { id, nombre, apellido, edad, correo } = req.body;
@@ -29,11 +31,12 @@ app.post('/crearEmpleado', (req, res) => {
     correo;
 
     /** valida typo de datos de atributos recibidos*/
-    typeof id;
-    typeof nombre;
-    typeof apellido;
-    typeof edad;
-    typeof correo;
+
+    const typeId = typeof id;
+    const typeNombre = typeof nombre;
+    const typeApellido = typeof apellido;
+    const typeEdad = typeof edad;
+    const typeCorreo = typeof correo;
 
     /** valida el tipo de dato y contenido correcto  de las variables recibidas */
     if (typeof id == 'string' || typeof edad == 'string' || typeof nombre != 'string' || typeof apellido != 'string' || typeof correo != 'string') {
